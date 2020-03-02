@@ -12,8 +12,8 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author www
- * @since 2020-02-27
+ * @author 
+ * @since 2020-02-28
  */
 @TableName("article")
 public class Article implements Serializable {
@@ -23,11 +23,17 @@ public class Article implements Serializable {
     @TableField("content")
     private String content;
 
-    @TableField("lastdate")
-    private Date lastdate;
+    /**
+     * 更新时间
+     */
+    @TableField("update_date")
+    private Date updateDate;
 
-    @TableField("cratedate")
-    private Date cratedate;
+    /**
+     * 创建时间
+     */
+    @TableField("create_date")
+    private Date createDate;
 
     @TableField("article_key")
     private String articleKey;
@@ -47,20 +53,20 @@ public class Article implements Serializable {
         this.content = content;
     }
 
-    public Date getLastdate() {
-        return lastdate;
+    public Date getUpdateDate() {
+        return updateDate;
     }
 
-    public void setLastdate(Date lastdate) {
-        this.lastdate = lastdate;
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 
-    public Date getCratedate() {
-        return cratedate;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCratedate(Date cratedate) {
-        this.cratedate = cratedate;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public String getArticleKey() {
@@ -91,8 +97,8 @@ public class Article implements Serializable {
     public String toString() {
         return "Article{" +
         "content=" + content +
-        ", lastdate=" + lastdate +
-        ", cratedate=" + cratedate +
+        ", updateDate=" + updateDate +
+        ", createDate=" + createDate +
         ", articleKey=" + articleKey +
         ", name=" + name +
         ", id=" + id +

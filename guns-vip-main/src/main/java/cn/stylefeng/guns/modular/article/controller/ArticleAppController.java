@@ -1,4 +1,4 @@
-package cn.stylefeng.guns.modular.apps;
+package cn.stylefeng.guns.modular.article.controller;
 
 import cn.stylefeng.guns.modular.article.entity.Article;
 import cn.stylefeng.guns.modular.article.service.ArticleService;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+/**
+ * @author WWW
+ */
 @RestController
 public class ArticleAppController {
 
@@ -17,13 +20,17 @@ public class ArticleAppController {
     private ArticleService articleService;
 
     @GetMapping("/article/getArticleByKey")
-    public ResponseData getArticleInfo(@RequestParam(value="key") String key){
-        Map<String, Object> result = null;
-        result = this.articleService.articleByKey(key);
-        if(result!=null){
-            return ResponseData.success(0,"请求成功",result.get("content"));
-        }else {
-            return ResponseData.error("请求失败");
+    public ResponseData getArticleInfo(@RequestParam(value = "key") String key) {
+        try {
+            Article article = null;
+            article = this.articleService.getArticleByKey(key);
+            if (article != null ) {
+                return ResponseData.success(article);
+            } else {
+                return ResponseData.error("未找到key");
+            }
+        } catch (Exception e) {
+            return ResponseData.error(e.getMessage());
         }
     }
 }

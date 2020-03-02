@@ -10,8 +10,8 @@ import java.math.BigDecimal;
  * 
  * </p>
  *
- * @author www
- * @since 2020-02-27
+ * @author 
+ * @since 2020-02-28
  */
 @Data
 public class ArticleResult implements Serializable {
@@ -21,9 +21,15 @@ public class ArticleResult implements Serializable {
 
     private String content;
 
-    private Date lastdate;
+    /**
+     * 更新时间
+     */
+    private Date updateDate;
 
-    private Date cratedate;
+    /**
+     * 创建时间
+     */
+    private Date createDate;
 
     private String articleKey;
 

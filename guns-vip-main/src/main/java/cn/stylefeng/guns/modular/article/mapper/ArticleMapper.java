@@ -16,40 +16,40 @@ import java.util.Map;
  *  Mapper 接口
  * </p>
  *
- * @author www
- * @since 2020-02-27
+ * @author 
+ * @since 2020-02-28
  */
 public interface ArticleMapper extends BaseMapper<Article> {
 
     /**
      * 获取列表
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     List<ArticleResult> customList(@Param("paramCondition") ArticleParam paramCondition);
 
     /**
      * 获取map列表
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     List<Map<String, Object>> customMapList(@Param("paramCondition") ArticleParam paramCondition);
 
     /**
      * 获取分页实体列表
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     Page<ArticleResult> customPageList(@Param("page") Page page, @Param("paramCondition") ArticleParam paramCondition);
 
     /**
      * 获取分页map列表
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     Page<Map<String, Object>> customPageMapList(@Param("page") Page page, @Param("paramCondition") ArticleParam paramCondition);
 
@@ -60,7 +60,5 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @date 2017年2月12日 下午9:14:34
      */
     Page<Map<String, Object>> articleList(@Param("page") Page page, @Param("condition") String condition);
-
-    Map<String, Object> articleByKey(@Param("key") String key);
 
 }

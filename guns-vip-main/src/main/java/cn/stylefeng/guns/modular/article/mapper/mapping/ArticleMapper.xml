@@ -6,15 +6,15 @@
     <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.article.entity.Article">
         <id column="id" property="id" />
         <result column="content" property="content" />
-        <result column="lastdate" property="lastdate" />
-        <result column="cratedate" property="cratedate" />
+        <result column="update_date" property="updateDate" />
+        <result column="create_date" property="createDate" />
         <result column="article_key" property="articleKey" />
         <result column="name" property="name" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        content AS "content", lastdate AS "lastdate", cratedate AS "cratedate", article_key AS "articleKey", name AS "name", id AS "id"
+        content AS "content", update_date AS "updateDate", create_date AS "createDate", article_key AS "articleKey", name AS "name", id AS "id"
     </sql>
 
     <!--查询文章列表-->
@@ -24,16 +24,6 @@
         from article
         <if test="condition != null">
             where name like CONCAT('%',#{condition},'%')
-        </if>
-    </select>
-
-    <!--根据key获取文章-->
-    <select id="articleByKey" resultType="map">
-        select
-        <include refid="Base_Column_List"/>
-        from article
-        <if test="key != null">
-            where article_key = key
         </if>
     </select>
 

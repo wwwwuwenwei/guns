@@ -15,66 +15,72 @@ import java.util.Map;
  *  服务类
  * </p>
  *
- * @author www
- * @since 2020-02-27
+ * @author 
+ * @since 2020-02-28
  */
 public interface ArticleService extends IService<Article> {
 
     /**
      * 新增
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     void add(ArticleParam param);
 
     /**
      * 删除
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     void delete(ArticleParam param);
 
     /**
      * 更新
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     void update(ArticleParam param);
 
     /**
      * 查询单条数据，Specification模式
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     ArticleResult findBySpec(ArticleParam param);
 
     /**
      * 查询列表，Specification模式
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
     List<ArticleResult> findListBySpec(ArticleParam param);
 
     /**
      * 查询分页数据，Specification模式
      *
-     * @author www
-     * @Date 2020-02-27
+     * @author 
+     * @Date 2020-02-28
      */
      LayuiPageInfo findPageBySpec(ArticleParam param);
 
     /**
-     * 获取文章列表
+     * 获取文章列表, 或者根据名称获取文章
      * @param condition
      * @return
      */
     Page<Map<String, Object>> articleList(String condition);
 
-    Map<String, Object> articleByKey(String key);
+    /**
+     * 通过key获取文章
+     * @param key
+     * @return
+     */
+    Article getArticleByKey(String key);
+
 
 }

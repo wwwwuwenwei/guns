@@ -8,6 +8,7 @@ import cn.stylefeng.guns.modular.article.model.params.ArticleParam;
 import cn.stylefeng.guns.modular.article.model.result.ArticleResult;
 import  cn.stylefeng.guns.modular.article.service.ArticleService;
 import cn.stylefeng.roses.core.util.ToolUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -22,11 +23,12 @@ import java.util.Map;
  *  服务实现类
  * </p>
  *
- * @author www
- * @since 2020-02-27
+ * @author 
+ * @since 2020-02-28
  */
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements ArticleService {
+
 
     @Override
     public void add(ArticleParam param){
@@ -90,12 +92,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public Page<Map<String, Object>> articleList(String condition) {
         Page page = LayuiPageFactory.defaultPage();
-        return this.baseMapper.articleList(page,condition);
+        return  this.baseMapper.articleList(page,condition);
     }
 
+    /**
+     * 根据key获取文章
+     * @param key
+     * @return
+     */
     @Override
-    public Map<String, Object> articleByKey(String key) {
-        return this.baseMapper.articleByKey(key);
+    public Article getArticleByKey(String key) {
+        QueryWrapper<Article> queryWrapper = new QueryWrapper<Article>();
+        queryWrapper.eq("article_key",key);
+        return this.baseMapper.selectOne(queryWrapper);
+
     }
 
 }

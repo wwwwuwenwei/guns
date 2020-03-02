@@ -18,11 +18,12 @@ layui.use(['table', 'admin', 'ax', 'func'], function () {
     Article.initColumn = function () {
         return [[
             {type: 'checkbox'},
-            {field: 'id', sort: true, title: 'ID'},
+            {field: 'id', hide: true, title: 'ID'},
             {field: 'name', sort: true, title: '名称'},
             {field: 'articleKey', sort: true, title: 'key'},
-            {field: 'cratedate', sort: true, title: '创建时间'},
-            {field: 'lastdate', sort: true, title: '更新时间'},
+            // {field: 'content', sort: true, title: ''},
+            {field: 'createDate', sort: true, title: '创建时间'},
+            {field: 'updateDate', sort: true, title: '更新时间'},
             {align: 'center', toolbar: '#tableBar', title: '操作'}
         ]];
     };

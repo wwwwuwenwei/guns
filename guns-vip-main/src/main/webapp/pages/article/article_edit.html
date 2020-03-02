@@ -1,14 +1,11 @@
 @layout("/common/_form.html",{js:["/assets/article/article_edit.js"]}){
 
-<!--<script  type="text/javascript" src="/assets/expand/module/kindeditor/kindeditor-all-min.js"></script>-->
-<!--<script  type="text/javascript" src="/assets/expand/module/kindeditor/lang/zh-CN.js"></script>-->
-
 <script  type="text/javascript" src="/assets/expand/module/release/wangEditor.js"></script>
 
-<form class="layui-form" id="articleForm" lay-filter="articleForm" >
+<form class="layui-form" id="articleForm" lay-filter="articleForm">
     <div class="layui-fluid" style="padding-bottom: 75px;">
         <div class="layui-card">
-            <div class="layui-card-header">编辑文章</div>
+            <div class="layui-card-header">基本信息</div>
             <div class="layui-card-body">
                 <div class="layui-form-item layui-row">
                     <input name="id" type="hidden"/>
@@ -29,8 +26,8 @@
                     <!--内容-->
                     <div class="layui-inline layui-col-md12">
                         <label class="layui-form-label" for="content" ><span style="color: red;">*</span>内容：</label>
-                            <div id="content" name="content" class="layui-input-block" style="z-index: 100" >
-                            </div>
+                        <div id="content" name="content" class="layui-input-block" style="z-index: 100" >
+                        </div>
                     </div>
 
                 </div>
@@ -45,12 +42,6 @@
 </form>
 
 <script>
-    // KindEditor.options.filterMode = false;
-    // KindEditor.ready(function(K) {
-    //     window.editor = K.create('#content',{
-    //         themeType : 'simple'
-    //     });
-    // });
     var E = window.wangEditor;
     var editor = new E('#content');
     // 或者 var editor = new E( document.getElementById('editor') )

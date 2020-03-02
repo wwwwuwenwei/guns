@@ -1,12 +1,12 @@
 package cn.stylefeng.guns.modular.article.controller;
 
+import cn.stylefeng.guns.base.pojo.page.LayuiPageFactory;
 import cn.stylefeng.guns.base.pojo.page.LayuiPageInfo;
 import cn.stylefeng.guns.modular.article.entity.Article;
 import cn.stylefeng.guns.modular.article.model.params.ArticleParam;
 import cn.stylefeng.guns.modular.article.service.ArticleService;
 import cn.stylefeng.roses.core.base.controller.BaseController;
 import cn.stylefeng.roses.core.reqres.response.ResponseData;
-import com.baomidou.mybatisplus.core.toolkit.sql.StringEscape;
 import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -127,8 +127,8 @@ public class ArticleController extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/list")
-    public LayuiPageInfo list(ArticleParam articleParam) {
-        return this.articleService.findPageBySpec(articleParam);
+    public LayuiPageInfo list(@RequestParam(value = "condition", required = false) String condition ) {
+        return LayuiPageFactory.createPageInfo(this.articleService.articleList(condition));
     }
 
 }

@@ -11,8 +11,8 @@ import java.math.BigDecimal;
  * 
  * </p>
  *
- * @author www
- * @since 2020-02-27
+ * @author 
+ * @since 2020-02-28
  */
 @Data
 public class ArticleParam implements Serializable, BaseValidatingParam {
@@ -20,11 +20,17 @@ public class ArticleParam implements Serializable, BaseValidatingParam {
     private static final long serialVersionUID = 1L;
 
 
-    private transient String content;
+    private String content;
 
-    private Date lastdate;
+    /**
+     * 更新时间
+     */
+    private Date updateDate;
 
-    private Date cratedate;
+    /**
+     * 创建时间
+     */
+    private Date createDate;
 
     private String articleKey;
 
@@ -37,52 +43,12 @@ public class ArticleParam implements Serializable, BaseValidatingParam {
         return null;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public void setLastdate(Date lastdate) {
-        this.lastdate = lastdate;
-    }
-
-    public void setCratedate(Date cratedate) {
-        this.cratedate = cratedate;
-    }
-
-    public void setArticleKey(String articleKey) {
-        this.articleKey = articleKey;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getLastdate() {
-        return lastdate;
-    }
-
-    public Date getCratedate() {
-        return cratedate;
-    }
-
-    public String getArticleKey() {
-        return articleKey;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public Integer getId() {
